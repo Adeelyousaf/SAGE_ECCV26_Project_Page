@@ -58,10 +58,19 @@ body {
 }
 
 .publication-venue {
-    color: #555;
+    display: inline-block;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff3860 0%, #ff9f1c 52%, #209cee 100%);
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(255, 56, 96, 0.22);
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    padding: 0.55rem 1.15rem;
     width: fit-content;
-    font-weight: bold;
-    margin: 0.75rem auto 1rem;
+    font-weight: 800;
+    margin: 0.85rem auto 1.15rem;
+    text-transform: uppercase;
 }
 
 .publication-awards {
