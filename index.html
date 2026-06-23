@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Project page for The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models.">
+  <meta name="keywords" content="Text-to-Image, Safety Alignment, Diffusion Models, Semantic Collapse, SAGE, ECCV 2026">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models</h1>
+          <p class="is-size-5 publication-venue">ECCV 2026</p>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <!-- TODO: replace placeholder href with Adeel Yousaf's homepage or Scholar URL. -->
+              <a href="#">Adeel Yousaf</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <!-- TODO: replace placeholder href with Soumik Ghosh's homepage or Scholar URL. -->
+              <a href="#">Soumik Ghosh</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <!-- TODO: replace placeholder href with James Beetham's homepage or Scholar URL. -->
+              <a href="#">James Beetham</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <!-- TODO: replace placeholder href with Amrit Singh Bedi's homepage or Scholar URL. -->
+              <a href="#">Amrit Singh Bedi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <!-- TODO: replace placeholder href with Mubarak Shah's homepage or Scholar URL. -->
+              <a href="#">Mubarak Shah</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Central Florida, USA</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./static/pdfs/paper.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- TODO: add arXiv link, then uncomment this block.
+              <span class="link-block">
+                <a href="TODO_ARXIV_URL" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              -->
+
+              <!-- TODO: add code repository link, then uncomment this block.
+              <span class="link-block">
+                <a href="TODO_CODE_URL" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              -->
+
+              <!-- TODO: add poster link, then uncomment this block.
+              <span class="link-block">
+                <a href="TODO_POSTER_URL" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-image"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Safety alignment of text-to-image (T2I) diffusion models aims to suppress harmful generations while preserving utility on benign prompts. Recent methods often appear to deliver high safety with high utility, but this conclusion rests largely on coarse global utility metrics (e.g., FID, CLIPScore) that are insensitive to fine-grained semantic correctness, creating an illusion of high utility. We show that when utility is measured with structured evaluation, this illusion breaks: on TIFA (Text-to-Image Faithfulness evaluation with Question Answering), safety-aligned models suffer substantial drops in semantic fidelity, including failures in object counts, attributes, and relationships. To diagnose the source of this gap, we analyze the text-encoder prompt embedding space and uncover semantic collapse, a contraction of embedding spread coupled with distortion of inter-prompt similarity structure, which strongly correlates with structured utility loss. Guided by this insight, we propose Structure-Aware Geometric Regularization (SAGE), a safety alignment objective that explicitly preserves embedding spread and inter-prompt relational structure during adaptation. Our method restores structured utility (TIFA +5.0% over prior state-of-the-art) while maintaining strong safety performance and competitive coarse-grained utility scores.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <figure class="publication-figure">
+        <img src="./static/images/teaser.png" alt="Comparison showing coarse CLIPScore can miss fine-grained utility degradation in safety-aligned text-to-image models.">
+        <figcaption>
+          <strong>The illusion of high utility under coarse evaluation.</strong> Comparison between the <strong>base model</strong> and a <strong>safe model</strong> (unlearned) across fine-grained prompts. While the Safe Model fails to generate specific attributes (e.g., the <em>yellow beak</em> or the <em>correct vase colors</em>), the standard <strong>CLIPScore</strong> provides misleadingly higher scores for the incorrect images. In contrast, the fine-grained metric, <strong>TIFA</strong>, accurately captures the utility degradation, properly penalizing the Safe Model for failing to satisfy the detailed visual requirements of the prompt.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            SAGE targets the representation-level failure mode behind hidden utility loss. Existing text-encoder safety methods can keep each benign prompt close to its original embedding while still compressing the overall embedding space and reshuffling local neighborhoods. This semantic collapse weakens the model's ability to preserve counts, attributes, and relationships.
+          </p>
+          <p>
+            The method augments safety alignment with two geometry-aware regularizers: Embedding Spread Preservation keeps the benign prompt distribution from contracting relative to the base encoder, while Local Structure Alignment preserves pairwise similarity relationships among nearby prompts, including under unsafe-concept perturbations. The result is a safety objective that suppresses unsafe generations without erasing the fine-grained geometry needed for faithful prompt following.
+          </p>
+        </div>
+
+        <figure class="publication-figure">
+          <img src="./static/images/method.png" alt="Embedding geometry under safety alignment for base model, prior methods, and SAGE.">
+          <figcaption>
+            <strong>Embedding geometry under safety alignment.</strong> The figure illustrates how safety alignment alters the structure of the text-encoder embedding space. <strong>Left: Base Model.</strong> The prompt "Three golden retrievers" is used as a reference. In the base model, semantically related prompts are arranged according to their similarity: "Three dogs" lies closest to the reference, followed by "Two golden retrievers", while an unrelated concept ("cat") appears far away. The arrows visualize the spread of prompt embeddings, and the circular region highlights the local semantic neighborhood around the reference prompt. <strong>Top-right: Prior safety alignment methods.</strong> Safety tuning often alters this structure in two ways. First, the overall spread of embeddings shrinks, meaning different prompts become more tightly clustered in the embedding space. Second, the local semantic neighborhood becomes distorted: prompts that should be far apart can move closer together, causing unrelated concepts (e.g., "cat") to appear within the neighborhood of the reference prompt. <strong>Bottom-right: Our method.</strong> Our alignment objective preserves both properties of the original embedding space. The overall embedding spread remains similar to the base model, and the local neighborhood structure around the reference prompt is maintained.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            Coarse metrics alone suggest that recent safety methods preserve utility, but TIFA exposes category-level failures in object, attribute, count, and relation fidelity. SAGE nearly recovers base-model structured utility while keeping safety competitive with the strongest alignment baselines.
+          </p>
+          <p>
+            Across the main results, SAGE reaches 75.4 TIFA, only 1.2% below the base model and 5.0% above DES, while maintaining low average ASR at 1.2%. It also preserves embedding geometry better than prior text-encoder methods, with a 0.96 spread ratio and 0.63 Jaccard neighborhood overlap.
+          </p>
+        </div>
+
+        <figure class="publication-figure result-figure">
+          <img src="./static/images/spread-vs-tifa.png" alt="Relationship between embedding spread ratio and TIFA utility.">
+          <figcaption>
+            <strong>Relationship between spread ratio (R<sub>s</sub>) and structured utility (TIFA).</strong> Methods with larger reductions in total embedding spread exhibit larger TIFA drops, indicating that embedding compression is closely associated with compositional degradation.
+          </figcaption>
+        </figure>
+
+        <div class="table-block">
+          <p class="table-caption">
+            <strong>Category-wise TIFA evaluation.</strong> Existing safety interventions degrade structural fidelity across multiple categories, while our method maintains strong performance (75.4 TIFA). Red highlights indicate the largest drop relative to the base model.
+          </p>
+          <div class="table-container">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth results-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Obj.</th>
+                  <th>Ani.</th>
+                  <th>Loc.</th>
+                  <th>Col.</th>
+                  <th>Food</th>
+                  <th>Mat.</th>
+                  <th>Att.</th>
+                  <th>Cnt.</th>
+                  <th>Sha.</th>
+                  <th>Act.</th>
+                  <th>Spa.</th>
+                  <th>TIFA Avg ↑</th>
+                  <th>CLIP ↑</th>
+                  <th>FID ↓</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Base (SD v1.4)</th>
+                  <td>78.9</td><td>82.8</td><td>89.8</td><td>79.9</td><td>84.1</td><td>83.7</td><td>79.6</td><td>63.6</td><td>58.0</td><td>68.2</td><td>52.9</td><td>76.3</td><td>26.5</td><td>17.23</td>
+                </tr>
+                <tr>
+                  <th>DES</th>
+                  <td>73.2</td><td>78.5</td><td>85.4</td><td>73.7</td><td class="largest-drop">71.1</td><td>74.6</td><td>77.4</td><td>59.3</td><td>53.6</td><td>63.5</td><td>51.7</td><td>71.6 ↓6.2%</td><td>25.5</td><td>16.23</td>
+                </tr>
+                <tr>
+                  <th>AdvUnlearn</th>
+                  <td>67.1</td><td>69.6</td><td>79.7</td><td>64.6</td><td>68.7</td><td>74.6</td><td>68.0</td><td>44.5</td><td class="largest-drop">37.7</td><td>49.9</td><td>41.9</td><td>63.1 ↓17.3%</td><td>23.9</td><td>20.67</td>
+                </tr>
+                <tr>
+                  <th>STEREO</th>
+                  <td>71.7</td><td>75.4</td><td>86.9</td><td>73.7</td><td>79.4</td><td>77.5</td><td>74.2</td><td>61.9</td><td>52.2</td><td class="largest-drop">58.3</td><td>48.2</td><td>69.9 ↓8.4%</td><td>24.6</td><td>21.69</td>
+                </tr>
+                <tr>
+                  <th>RECE</th>
+                  <td>78.4</td><td>80.5</td><td>88.0</td><td>79.9</td><td class="largest-drop">80.2</td><td>85.7</td><td>77.6</td><td>61.1</td><td>66.7</td><td>65.6</td><td>50.9</td><td>74.8 ↓2.0%</td><td>26.0</td><td>17.51</td>
+                </tr>
+                <tr>
+                  <th>MACE</th>
+                  <td>62.9</td><td>68.7</td><td>79.6</td><td>62.5</td><td class="largest-drop">54.9</td><td>68.9</td><td>69.6</td><td>55.5</td><td>46.4</td><td>53.9</td><td>47.4</td><td>62.6 ↓18.0%</td><td>23.8</td><td>24.87</td>
+                </tr>
+                <tr>
+                  <th>SafeCLIP</th>
+                  <td>59.0</td><td>67.4</td><td class="largest-drop">79.1</td><td>69.5</td><td>58.1</td><td>75.2</td><td>71.4</td><td>56.6</td><td>50.0</td><td>46.6</td><td>40.5</td><td>60.1 ↓21.2%</td><td>22.3</td><td>33.40</td>
+                </tr>
+                <tr>
+                  <th>SafeRCLIP</th>
+                  <td>58.6</td><td>66.1</td><td>78.2</td><td>69.1</td><td class="largest-drop">58.5</td><td>74.6</td><td>71.6</td><td>55.9</td><td>50.7</td><td>46.1</td><td>43.7</td><td>60.7 ↓20.4%</td><td>22.4</td><td>32.31</td>
+                </tr>
+                <tr>
+                  <th>SLD</th>
+                  <td>77.3</td><td>80.0</td><td>88.0</td><td>77.8</td><td>82.3</td><td>81.3</td><td>76.8</td><td>63.0</td><td class="largest-drop">52.2</td><td>63.2</td><td>50.4</td><td>73.9 ↓3.1%</td><td>25.5</td><td>21.85</td>
+                </tr>
+                <tr class="ours-row">
+                  <th>Ours</th>
+                  <td>77.6</td><td>80.8</td><td>88.3</td><td>79.6</td><td>83.5</td><td>83.7</td><td>80.1</td><td>61.1</td><td>58.0</td><td>66.3</td><td>53.8</td><td>75.4 ↓1.2%</td><td>26.4</td><td>15.93</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-block">
+          <p class="table-caption">
+            <strong>Comparison of Attack Success Rate (ASR) and CLIP Score across different methods.</strong> Lower ASR and higher CLIP scores indicate better safety and utility preservation, respectively.
+          </p>
+          <div class="table-container">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth results-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>MMA ↓</th>
+                  <th>Sneaky ↓</th>
+                  <th>I2P-S ↓</th>
+                  <th>Ring ↓</th>
+                  <th>P4D ↓</th>
+                  <th>Avg. ASR ↓</th>
+                  <th>CLIPScore ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th>Base (SD v1.4)</th><td>80.4</td><td>42.7</td><td>34.3</td><td>98.1</td><td>82.4</td><td>67.6</td><td>26.5</td></tr>
+                <tr><th>DES</th><td>0.2</td><td>0.8</td><td>1.2</td><td>2.8</td><td>0.0</td><td>1.0</td><td>25.5</td></tr>
+                <tr><th>Adv-Unlearn</th><td>0.3</td><td>0.8</td><td>1.1</td><td>0.0</td><td>0.0</td><td>0.4</td><td>23.9</td></tr>
+                <tr><th>SafeCLIP</th><td>25.2</td><td>17.7</td><td>24.0</td><td>65.4</td><td>57.7</td><td>38.1</td><td>22.3</td></tr>
+                <tr><th>SafeRCLIP</th><td>24.6</td><td>16.1</td><td>17.9</td><td>73.8</td><td>43.0</td><td>35.1</td><td>22.4</td></tr>
+                <tr><th>STEREO</th><td>2.2</td><td>3.2</td><td>1.1</td><td>2.8</td><td>3.3</td><td>2.5</td><td>24.6</td></tr>
+                <tr><th>SLD</th><td>74.3</td><td>31.5</td><td>20.8</td><td>98.1</td><td>74.3</td><td>59.8</td><td>25.5</td></tr>
+                <tr><th>RECE</th><td>36.1</td><td>6.5</td><td>6.0</td><td>15.9</td><td>26.1</td><td>18.1</td><td>26.0</td></tr>
+                <tr><th>MACE</th><td>8.6</td><td>2.4</td><td>6.3</td><td>9.4</td><td>10.3</td><td>7.4</td><td>23.8</td></tr>
+                <tr class="ours-row"><th>Ours</th><td>0.4</td><td>0.8</td><td>1.2</td><td>2.8</td><td>1.0</td><td>1.2</td><td>26.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-block">
+          <p class="table-caption">
+            <strong>Geometric properties of the text embedding space after safety alignment.</strong> Higher values indicate better preservation of embedding dispersion and local semantic neighborhoods.
+          </p>
+          <div class="table-container compact-table">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth results-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Spread Ratio ↑</th>
+                  <th>Jaccard ↑</th>
+                  <th>CLIPScore ↑</th>
+                  <th>TIFA ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th>DES</th><td>0.80</td><td>0.52</td><td>25.5</td><td>71.6</td></tr>
+                <tr><th>Adv-Unlearn</th><td>0.71</td><td>0.50</td><td>23.9</td><td>63.1</td></tr>
+                <tr><th>SafeRCLIP</th><td>0.39</td><td>0.43</td><td>22.4</td><td>60.7</td></tr>
+                <tr><th>SafeCLIP</th><td>0.36</td><td>0.42</td><td>22.3</td><td>60.1</td></tr>
+                <tr class="ours-row"><th>Ours</th><td>0.96</td><td>0.63</td><td>26.4</td><td>75.4</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="conclusion">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Conclusion</h2>
+        <div class="content has-text-justified">
+          <p>
+            The paper shows that the standard story around safety-utility tradeoffs is incomplete: global scores like FID and CLIPScore can hide substantial fine-grained failures. By diagnosing those failures as semantic collapse in the text-encoder embedding space, SAGE gives safety alignment a more structural target: preserve embedding spread and local relationships while steering unsafe prompts away from harmful generations.
+          </p>
+          <p>
+            The resulting model maintains strong robustness against unsafe and adversarial prompts while restoring much of the structured utility that prior safety methods lose, suggesting that representation geometry is a practical lever for safer and more faithful text-to-image generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{yousaf2026illusion,
+  author    = {Yousaf, Adeel and Ghosh, Soumik and Beetham, James and Bedi, Amrit Singh and Shah, Mubarak},
+  title     = {The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/pdfs/paper.pdf" aria-label="Paper PDF">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website, we just ask that you link back to this page in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
