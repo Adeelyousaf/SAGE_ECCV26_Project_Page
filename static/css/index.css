@@ -429,6 +429,7 @@ body {
 }
 
 .illusion-card {
+  min-width: 0;
   border: 1px solid #e7e9ee;
   border-left: 5px solid #ff3860;
   border-radius: 8px;
@@ -480,6 +481,9 @@ body {
 }
 
 .concept-card {
+  /* Grid items default to min-width:auto, which lets a wide equation push the
+     column past the viewport; 0 lets .eq scroll inside instead. */
+  min-width: 0;
   background: #ffffff;
   border: 1px solid #e7e9ee;
   border-top: 4px solid transparent;
@@ -541,6 +545,10 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.figure-pair > * {
+  min-width: 0;
 }
 
 .figure-pair img {

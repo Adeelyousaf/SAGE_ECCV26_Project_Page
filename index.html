@@ -7,6 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models</title>
 
+  <!-- Link preview card (LinkedIn, X, Slack, Facebook). Absolute URLs are
+       required: crawlers do not resolve relative paths. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SAGE &mdash; ECCV 2026">
+  <meta property="og:url" content="https://adeelyousaf.github.io/SAGE_ECCV26_Project_Page/">
+  <meta property="og:title" content="The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models">
+  <meta property="og:description" content="ECCV 2026. Safety-aligned T2I models look fine under CLIPScore but lose fine-grained semantic fidelity. We trace this to semantic collapse in the text encoder and propose SAGE, which restores structured utility (TIFA +5.0%) while keeping ASR at 1.2%.">
+  <meta property="og:image" content="https://adeelyousaf.github.io/SAGE_ECCV26_Project_Page/static/images/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Teaser comparing a base and a safety-aligned text-to-image model, where CLIPScore rates the incorrect image higher while TIFA penalizes it.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models">
+  <meta name="twitter:description" content="ECCV 2026. Safety alignment looks utility-preserving under CLIPScore, but structured evaluation says otherwise. SAGE restores TIFA +5.0% while keeping ASR at 1.2%.">
+  <meta name="twitter:image" content="https://adeelyousaf.github.io/SAGE_ECCV26_Project_Page/static/images/og-preview.jpg">
+
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
@@ -265,7 +282,7 @@
             <img src="./static/images/jaccard-analysis.png" alt="Category-level local structure collapse for DES: lower Jaccard ratio corresponds to higher TIFA utility drop.">
           </div>
           <figcaption class="caption-lead">
-            <strong>Both geometry measures track the utility drop.</strong> For DES, lower spread ratio $\mathcal{R}_s$ <strong>(a)</strong> and lower Jaccard ratio $J$ <strong>(b)</strong> each mean a larger TIFA drop (<span class="bad">$r = -0.86$</span>, <span class="bad">$r = -0.90$</span>); <span class="bad">Food</span> collapses on both.
+            <strong>Both geometry measures track the utility drop.</strong> For DES, lower spread ratio $\mathcal{R}_s$ <strong>(a)</strong> and lower Jaccard ratio $J$ <strong>(b)</strong> each mean a larger TIFA drop (<span class="bad">$r = -0.83$</span>, <span class="bad">$r = -0.90$</span>); <span class="bad">Food</span> collapses on both.
           </figcaption>
         </figure>
 
