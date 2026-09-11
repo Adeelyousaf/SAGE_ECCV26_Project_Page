@@ -411,6 +411,16 @@ body {
   margin: 2rem 0;
 }
 
+/* The two cards answer the same question in opposite directions, so they are
+   colored to match: green for what CLIPScore claims, red for what TIFA finds. */
+.illusion-card--suggest {
+  border-left-color: #0f9d58 !important;
+}
+
+.illusion-card--reveal {
+  border-left-color: #d93025 !important;
+}
+
 .illusion-card {
   border: 1px solid #e7e9ee;
   border-left: 5px solid #ff3860;

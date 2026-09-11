@@ -168,9 +168,6 @@
         </div>
 
         <div class="table-block">
-          <p class="table-caption">
-            <strong>How prior T2I safety methods measure utility.</strong> Almost all report only <span class="bad">FID and CLIPScore</span> &mdash; no structured metric.
-          </p>
           <div class="table-container compact-table">
             <table class="table is-fullwidth results-table utility-eval-table">
               <thead>
@@ -197,19 +194,20 @@
               </tbody>
             </table>
           </div>
+          <p class="takeaway">Prior safety methods report only coarse metrics &mdash; none evaluate structured, fine-grained utility</p>
         </div>
 
         <div class="illusion-grid">
-          <div class="illusion-card">
+          <div class="illusion-card illusion-card--suggest">
             <h3 class="title is-5">What CLIPScore Suggests</h3>
             <p>
-              CLIPScore stays nearly constant across semantic categories for DES, hovering around 0.30. From that global signal alone, utility appears broadly preserved after safety alignment.
+              Nearly flat across every semantic category, hovering around <span class="good">0.30</span>. On this signal alone, safety alignment looks <span class="good">free</span> &mdash; utility appears preserved.
             </p>
           </div>
-          <div class="illusion-card">
+          <div class="illusion-card illusion-card--reveal">
             <h3 class="title is-5">What TIFA Reveals</h3>
             <p>
-              TIFA exposes category-specific degradation: food, material, color, activity, and object prompts lose much more semantic fidelity than CLIPScore indicates.
+              Sharp, category-specific losses. <span class="bad">Food, material, color, activity, and object</span> prompts lose far more semantic fidelity than CLIPScore ever indicates.
             </p>
           </div>
         </div>
