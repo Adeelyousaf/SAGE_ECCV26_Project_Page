@@ -22,14 +22,16 @@
     <div class="container is-max-widescreen hero-container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
+          <div class="hero-topbar">
+            <div class="sticker-star"><span>Looking&nbsp;for Internships</span></div>
+            <a href="https://eccv.ecva.net/virtual/2026/poster/5377" class="hero-logo-link" target="_blank" rel="noopener noreferrer">
+              <img class="hero-logo" src="./static/images/eccv2026-logo.svg" alt="ECCV 2026, Malm&ouml;, September 8&ndash;12">
+            </a>
+          </div>
+
           <h1 class="title is-1 publication-title">The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models</h1>
 
-          <div class="venue-block">
-            <a href="https://eccv.ecva.net/virtual/2026/poster/5377" class="venue-logo-link" target="_blank" rel="noopener noreferrer">
-              <img class="venue-logo" src="./static/images/eccv2026-logo.svg" alt="ECCV 2026, Malm&ouml;, September 8&ndash;12">
-            </a>
-            <p class="is-size-5 publication-venue">ECCV 2026</p>
-          </div>
+          <p class="is-size-5 publication-venue">ECCV 2026</p>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
@@ -267,16 +269,13 @@
         <h2 class="title is-3 section-heading">Results</h2>
         <div class="content has-text-justified">
           <p>
-            Coarse metrics alone suggest that recent safety methods preserve utility, but TIFA exposes category-level failures in object, attribute, count, and relation fidelity. SAGE nearly recovers base-model structured utility while keeping safety competitive with the strongest alignment baselines.
-          </p>
-          <p>
-            Across the main results, SAGE reaches 75.4 TIFA, only 1.2% below the base model and 5.0% above DES, while maintaining low average ASR at 1.2%. It also preserves embedding geometry better than prior text-encoder methods, with a 0.96 spread ratio and 0.63 Jaccard neighborhood overlap.
+            SAGE reaches <strong>75.4 TIFA</strong> &mdash; 1.2% below the base model and 5.0% above DES &mdash; at <strong>1.2% average ASR</strong>, while preserving embedding geometry better than prior text-encoder methods (0.96 spread ratio, 0.63 Jaccard overlap).
           </p>
         </div>
 
         <div class="table-block">
           <p class="table-caption">
-            <strong>Category-wise TIFA evaluation.</strong> Existing safety interventions degrade structural fidelity across multiple categories, while our method maintains strong performance (75.4 TIFA). Red highlights indicate the largest drop relative to the base model.
+            <strong>Category-wise TIFA evaluation.</strong> Red marks the largest drop from the base model in each row.
           </p>
           <div class="table-container">
             <table class="table is-fullwidth results-table">
@@ -348,7 +347,7 @@
 
         <div class="table-block">
           <p class="table-caption">
-            <strong>Comparison of Attack Success Rate (ASR) and CLIP Score across different methods.</strong> Lower ASR and higher CLIP scores indicate better safety and utility preservation, respectively.
+            <strong>Attack Success Rate (ASR) and CLIPScore.</strong> Lower ASR is safer; higher CLIPScore retains more utility.
           </p>
           <div class="table-container">
             <table class="table is-fullwidth results-table">
