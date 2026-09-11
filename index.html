@@ -133,7 +133,7 @@
       <figure class="publication-figure">
         <img src="./static/images/teaser.png" alt="Comparison showing coarse CLIPScore can miss fine-grained utility degradation in safety-aligned text-to-image models.">
         <figcaption>
-          <strong>The illusion of high utility under coarse evaluation.</strong> Comparison between the <strong>base model</strong> and a <strong>safe model</strong> (unlearned) across fine-grained prompts. While the Safe Model fails to generate specific attributes (e.g., the <em>yellow beak</em> or the <em>correct vase colors</em>), the standard <strong>CLIPScore</strong> provides misleadingly higher scores for the incorrect images. In contrast, the fine-grained metric, <strong>TIFA</strong>, accurately captures the utility degradation, properly penalizing the Safe Model for failing to satisfy the detailed visual requirements of the prompt.
+          <strong>The illusion of high utility under coarse evaluation.</strong> Comparison between the <strong>base model</strong> and a <strong>safe model</strong> (unlearned) across fine-grained prompts. While the Safe Model fails to generate specific attributes (e.g., the <em>yellow beak</em> or the <em>correct vase colors/count</em>), the standard <strong>CLIPScore</strong> provides misleadingly higher scores for the incorrect images (&#10007;). In contrast, the fine-grained metric, <strong>TIFA</strong>, accurately captures the utility degradation (&#10003;), properly penalizing the Safe Model for failing to satisfy the detailed visual requirements of the prompt.
         </figcaption>
       </figure>
     </div>
