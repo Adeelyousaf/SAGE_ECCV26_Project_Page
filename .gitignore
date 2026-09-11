@@ -3,3 +3,6 @@
 
 # Source poster (full-res original); the web copy lives at static/pdfs/poster.pdf
 T2I_illusion_poster_final_shared*.pdf
+
+# Source logo archive; the web copies live in static/images/
+Color Logos-*.zip
