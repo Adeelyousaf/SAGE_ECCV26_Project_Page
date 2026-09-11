@@ -294,6 +294,33 @@ body {
   text-align: justify;
 }
 
+/* Lead caption: short enough to read at a glance, so it carries more weight
+   than the standard figure caption. */
+.caption-lead {
+  color: #22262e !important;
+  font-size: 1.12rem !important;
+  line-height: 1.65 !important;
+  margin-top: 1.2rem !important;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center !important;
+}
+
+.caption-lead strong {
+  color: #1b1f27;
+}
+
+.caption-lead .bad {
+  color: #d93025;
+  font-weight: 700;
+}
+
+.caption-lead .good {
+  color: #0f9d58;
+  font-weight: 700;
+}
+
 .result-figure {
   max-width: 680px;
 }
