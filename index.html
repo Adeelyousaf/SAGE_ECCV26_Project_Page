@@ -143,47 +143,27 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <figure class="publication-figure">
-        <img src="./static/images/teaser.png" alt="Comparison showing coarse CLIPScore can miss fine-grained utility degradation in safety-aligned text-to-image models.">
-        <figcaption class="caption-lead">
-          <strong>Coarse metrics hide fine-grained semantic errors.</strong> The safe model misses the <span class="bad">yellow beak</span> and the <span class="bad">vase colors/count</span>, yet CLIPScore rates it <span class="bad">higher</span> <span class="bad">&#10007;</span> &mdash; only TIFA penalizes the failure <span class="good">&#10003;</span>.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="video">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 section-heading section-heading--center">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/BVw6WnfG2iw?rel=0"
-                  title="The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="section" id="illusion">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3 section-heading section-heading--center illusion-heading">The Utility Illusion</h2>
+
+        <figure class="publication-figure">
+          <img src="./static/images/teaser.png" alt="Comparison showing coarse CLIPScore can miss fine-grained utility degradation in safety-aligned text-to-image models.">
+          <figcaption class="caption-lead">
+            <strong>Coarse metrics hide fine-grained semantic errors.</strong> The safe model misses the <span class="bad">yellow beak</span> and the <span class="bad">vase colors/count</span>, yet CLIPScore rates it <span class="bad">higher</span> <span class="bad">&#10007;</span> &mdash; only TIFA penalizes the failure <span class="good">&#10003;</span>.
+          </figcaption>
+        </figure>
+
         <div class="content has-text-justified">
           <p>
             Prior T2I safety methods, summarized in the table below, evaluate safety through attack success rates while assessing utility with global measures such as CLIPScore, which captures overall image&ndash;text similarity. Under this metric, recent methods appear to match the utility of the base model, suggesting that the safety&ndash;utility tradeoff has been largely resolved. We argue that this conclusion is incomplete: for T2I generation, utility is not only a matter of visual quality or global image&ndash;text similarity, but of whether the model correctly renders the objects, attributes, counts, and relationships specified in the prompt.
           </p>
           <p>
-            This gap produces an illusion of high utility. When the same models are evaluated with structured, fine-grained benchmarks such as Text-to-Image Faithfulness Evaluation with Question Answering (TIFA), a different picture emerges: despite competitive CLIPScore, state-of-the-art safety alignment methods consistently underperform the base model in compositional and semantic fidelity. The teaser above illustrates this directly: the safety-aligned model attains a higher CLIPScore than the base model while violating explicit prompt constraints such as the yellow beak and the specified vase colors and count, whereas TIFA penalizes precisely those failures.
+            This gap produces an illusion of high utility. When the same models are evaluated with structured, fine-grained benchmarks such as Text-to-Image Faithfulness Evaluation with Question Answering (TIFA), a different picture emerges: despite competitive CLIPScore, state-of-the-art safety alignment methods consistently underperform the base model in compositional and semantic fidelity. The figure above illustrates this directly: the safety-aligned model attains a higher CLIPScore than the base model while violating explicit prompt constraints such as the yellow beak and the specified vase colors and count, whereas TIFA penalizes precisely those failures.
           </p>
         </div>
 
@@ -468,6 +448,23 @@
           <p>
             The resulting model maintains strong robustness against unsafe and adversarial prompts while restoring much of the structured utility that prior safety methods lose, suggesting that representation geometry is a practical lever for safer and more faithful text-to-image generation.
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="video">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 section-heading section-heading--center">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/BVw6WnfG2iw?rel=0"
+                  title="The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
         </div>
       </div>
     </div>
