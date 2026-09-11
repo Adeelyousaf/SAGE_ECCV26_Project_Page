@@ -11,12 +11,26 @@ Static project page for the ECCV 2026 paper:
 }
 ```
 
+## Links
+
+- ECCV 2026 page: https://eccv.ecva.net/virtual/2026/poster/5377
+- arXiv: https://arxiv.org/abs/2607.00402
+- Video: https://www.youtube.com/watch?v=BVw6WnfG2iw
+- Hugging Face: https://huggingface.co/Adeely93/SAGE
+- Poster: `static/pdfs/poster.pdf` (preview image: `static/images/poster-preview.jpg`)
+
+The poster PDF in `static/pdfs/` is a downsampled web copy (2.8 MB) of the
+full-resolution original, which is kept out of git via `.gitignore`.
+
 This page is based on the Nerfies project page template:
 https://github.com/nerfies/nerfies.github.io
 
 ## Preview
 
-Open `index.html` directly in a browser.
+Serve the folder over HTTP (`python3 -m http.server`) and open
+http://localhost:8000. Opening `index.html` directly via `file://` also works,
+but the embedded YouTube player shows "Error 153" because the page has no
+origin.
 
 ## Website License
 

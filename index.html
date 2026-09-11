@@ -50,11 +50,38 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
+                <a href="https://eccv.ecva.net/virtual/2026/poster/5377" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                    <i class="fas fa-external-link-alt"></i>
+                  </span>
+                  <span>ECCV Page</span>
+                </a>
+              </span>
+
+              <span class="link-block">
                 <a href="https://arxiv.org/abs/2607.00402" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
                   <span class="icon">
                     <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=BVw6WnfG2iw" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="./static/pdfs/poster.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Poster</span>
                 </a>
               </span>
 
@@ -74,17 +101,6 @@
                     <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                </a>
-              </span>
-              -->
-
-              <!-- TODO: add poster link, then uncomment this block.
-              <span class="link-block">
-                <a href="TODO_POSTER_URL" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-image"></i>
-                  </span>
-                  <span>Poster</span>
                 </a>
               </span>
               -->
@@ -120,6 +136,23 @@
           <strong>The illusion of high utility under coarse evaluation.</strong> Comparison between the <strong>base model</strong> and a <strong>safe model</strong> (unlearned) across fine-grained prompts. While the Safe Model fails to generate specific attributes (e.g., the <em>yellow beak</em> or the <em>correct vase colors</em>), the standard <strong>CLIPScore</strong> provides misleadingly higher scores for the incorrect images. In contrast, the fine-grained metric, <strong>TIFA</strong>, accurately captures the utility degradation, properly penalizing the Safe Model for failing to satisfy the detailed visual requirements of the prompt.
         </figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="video">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/BVw6WnfG2iw?rel=0"
+                  title="The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -370,6 +403,25 @@
   </div>
 </section>
 
+<section class="section" id="poster">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Poster</h2>
+        <a class="poster-link" href="./static/pdfs/poster.pdf" target="_blank" rel="noopener noreferrer">
+          <img src="./static/images/poster-preview.jpg" alt="ECCV 2026 poster for The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models.">
+        </a>
+        <p class="poster-actions">
+          <a class="button is-normal is-rounded is-dark" href="./static/pdfs/poster.pdf" target="_blank" rel="noopener noreferrer">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Download poster (PDF)</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
@@ -390,6 +442,15 @@
     <div class="content has-text-centered">
       <a class="icon-link" href="https://arxiv.org/abs/2607.00402" aria-label="Paper on arXiv" target="_blank" rel="noopener noreferrer">
         <i class="ai ai-arxiv"></i>
+      </a>
+      <a class="icon-link" href="https://eccv.ecva.net/virtual/2026/poster/5377" aria-label="ECCV 2026 page" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      <a class="icon-link" href="https://www.youtube.com/watch?v=BVw6WnfG2iw" aria-label="Presentation video on YouTube" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a class="icon-link" href="./static/pdfs/poster.pdf" aria-label="Poster PDF" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-file-pdf"></i>
       </a>
     </div>
     <div class="columns is-centered">
