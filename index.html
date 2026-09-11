@@ -161,13 +161,13 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">The Utility Illusion</h2>
+        <h2 class="title is-3 illusion-heading">The Utility Illusion</h2>
         <div class="content has-text-justified">
           <p>
-            The central issue is not that safety alignment always destroys utility; it is that the most common utility measurements can make degraded models look healthier than they are. Prior T2I safety papers typically report coarse global metrics such as FID and CLIPScore, which summarize distributional realism or broad image-text similarity. Those scores are useful, but they do not directly ask whether the generated image preserves the prompt's objects, attributes, counts, and relationships.
+            Prior T2I safety methods, summarized in the table below, evaluate safety through attack success rates while assessing utility with global measures such as CLIPScore, which captures overall image&ndash;text similarity. Under this metric, recent methods appear to match the utility of the base model, suggesting that the safety&ndash;utility tradeoff has been largely resolved. We argue that this conclusion is incomplete: for T2I generation, utility is not only a matter of visual quality or global image&ndash;text similarity, but of whether the model correctly renders the objects, attributes, counts, and relationships specified in the prompt.
           </p>
           <p>
-            This creates the illusion of high utility: under CLIPScore, a safety-aligned model can appear to preserve global alignment, while a fine-grained metric such as TIFA reveals that it has lost important semantic details. In the teaser examples above, the safe model receives competitive or even higher CLIPScore despite missing the yellow beak and the requested vase colors. TIFA penalizes those failures because it decomposes the prompt into targeted visual questions.
+            This gap produces an illusion of high utility. When the same models are evaluated with structured, fine-grained benchmarks such as Text-to-Image Faithfulness Evaluation with Question Answering (TIFA), a different picture emerges: despite competitive CLIPScore, state-of-the-art safety alignment methods consistently underperform the base model in compositional and semantic fidelity. The teaser above illustrates this directly: the safety-aligned model attains a higher CLIPScore than the base model while violating explicit prompt constraints such as the yellow beak and the specified vase colors and count, whereas TIFA penalizes precisely those failures.
           </p>
         </div>
 
@@ -176,7 +176,7 @@
             <strong>Utility evaluation setups used in prior T2I safety methods.</strong> Most prior work reports coarse metrics such as FID and CLIPScore, which motivates testing safety-aligned models with structured metrics as well.
           </p>
           <div class="table-container compact-table">
-            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth results-table utility-eval-table">
+            <table class="table is-fullwidth results-table utility-eval-table">
               <thead>
                 <tr>
                   <th>Method</th>
