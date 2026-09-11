@@ -14,6 +14,14 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
   <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
 
@@ -237,6 +245,51 @@
   </div>
 </section>
 
+<section class="section" id="diagnosis">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 section-heading section-heading--center">Diagnosis: Semantic Collapse</h2>
+        <div class="content has-text-justified">
+          <p>
+            The TIFA gap raises a natural question: <em>what changes in the model lead to these compositional failures?</em> Since many safety methods operate by fine-tuning the text encoder, we analyze how safety alignment reshapes the prompt embedding space. We quantify <strong>semantic collapse</strong> as a geometric shift characterized by (i) embedding spread contraction and (ii) neighborhood distortion.
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3 class="concept-title">Embedding spread</h3>
+            <p>Given $B$ benign prompts with $\ell_2$-normalized embeddings $\mathbf{z}^{(i)}$ and mean embedding $\bar{\mathbf{z}}$, the spread is the average squared distance from the batch mean:</p>
+            <div class="eq">$$\mathcal{S} = \frac{1}{B}\sum_{i=1}^{B}\left\|\mathbf{z}^{(i)} - \bar{\mathbf{z}}\right\|_2^2 , \qquad \mathcal{R}_s = \frac{\mathcal{S}_\theta}{\mathcal{S}_0}$$</div>
+            <p class="concept-note">$\mathcal{R}_s &lt; 1$ indicates embedding contraction; $\mathcal{R}_s \approx 1$ means the spread matches the base model.</p>
+          </div>
+
+          <div class="concept-card">
+            <h3 class="concept-title">Neighborhood distortion</h3>
+            <p>Spread alone does not capture whether <em>relative relationships</em> among prompts are preserved. For prompt $i$, we measure the overlap of its top-$K$ neighbors before and after alignment:</p>
+            <div class="eq">$$J_i = \frac{\left|\mathcal{N}_i^{(0)} \cap \mathcal{N}_i^{(\theta)}\right|}{\left|\mathcal{N}_i^{(0)} \cup \mathcal{N}_i^{(\theta)}\right|}$$</div>
+            <p class="concept-note">A high Jaccard score means the model retains its relational logic and subject&ndash;attribute binding.</p>
+          </div>
+        </div>
+
+        <p class="notation"><strong>Notation.</strong> $\mathbf{z}^{(i)}$ embedding of prompt $i$ &middot; $\bar{\mathbf{z}}$ mean embedding over batch &middot; $B$ batch size &middot; $\mathcal{N}_i^{(0)}$, $\mathcal{N}_i^{(\theta)}$ $k$-NN of prompt $i$ in the base and aligned models &middot; $\mathcal{S}_0$, $\mathcal{S}_\theta$ spread before and after alignment &middot; $\operatorname{sg}$ stop gradient.</p>
+
+        <figure class="publication-figure">
+          <div class="figure-pair">
+            <img src="./static/images/spread-analysis.png" alt="Category-level embedding spread collapse for DES: lower spread ratio corresponds to higher TIFA utility drop.">
+            <img src="./static/images/jaccard-analysis.png" alt="Category-level local structure collapse for DES: lower Jaccard ratio corresponds to higher TIFA utility drop.">
+          </div>
+          <figcaption>
+            <strong>Geometric characterization of semantic collapse under safety alignment.</strong> <strong>(a)</strong> Category-level analysis for DES showing that a lower Embedding Spread Ratio ($\mathcal{R}_s$) corresponds to a higher TIFA utility drop (Pearson $r = -0.86$). Categories such as <em>Food</em> and <em>Material</em> fall into the semantic collapse region. <strong>(b)</strong> A lower Jaccard Ratio ($J$) likewise corresponds to a higher TIFA utility drop (Pearson $r = -0.90$).
+          </figcaption>
+        </figure>
+
+        <p class="takeaway">Structured utility loss tracks semantic collapse: embedding spread contraction together with neighborhood distortion</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -244,17 +297,35 @@
         <h2 class="title is-3 section-heading section-heading--center">Method</h2>
         <div class="content has-text-justified">
           <p>
-            SAGE targets the representation-level failure mode behind hidden utility loss. Existing text-encoder safety methods can keep each benign prompt close to its original embedding while still compressing the overall embedding space and reshuffling local neighborhoods. This semantic collapse weakens the model's ability to preserve counts, attributes, and relationships.
+            <strong>Structure-Aware Geometric Regularization (SAGE)</strong> augments DES with two regularization terms that prevent embedding collapse and local semantic distortion. The text encoder $T_\theta$ is trained against the frozen base encoder $T_0$; the UNet stays frozen.
           </p>
-          <p>
-            The method augments safety alignment with two geometry-aware regularizers: Embedding Spread Preservation keeps the benign prompt distribution from contracting relative to the base encoder, while Local Structure Alignment preserves pairwise similarity relationships among nearby prompts, including under unsafe-concept perturbations. The result is a safety objective that suppresses unsafe generations without erasing the fine-grained geometry needed for faithful prompt following.
-          </p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3 class="concept-title">1 &middot; Embedding Spread Preservation (ESP)</h3>
+            <p>Enforces a lower bound on the embedding spread of $T_\theta$ relative to $T_0$:</p>
+            <div class="eq">$$\mathcal{L}_{\text{ESP}} = \max\big(0,\ \operatorname{sg}(\mathrm{S}_0) - \mathrm{S}_\theta\big)$$</div>
+            <p class="concept-note">A one-sided penalty: it fires only when the spread falls below the base model, and never forces the space to expand.</p>
+          </div>
+
+          <div class="concept-card">
+            <h3 class="concept-title">2 &middot; Local Structure Alignment (LSA)</h3>
+            <p>Matches pairwise similarities over the Top-$K$ neighbor pairs $\mathcal{K}$ of the base encoder, under a perturbation along the unsafe concept direction:</p>
+            <div class="eq">$$\mathcal{L}^{\text{pert}}_{\text{LSA}} = 1 - \frac{1}{|\mathcal{K}|}\sum_{(i,j)\in\mathcal{K}} \tilde{S}_\theta(i,j)\,\operatorname{sg}\big(S_0(i,j)\big)$$</div>
+            <p class="concept-note">$\tilde{T}_\theta(p_i) = T_\theta(p_i) + \alpha\,T_0(\text{&ldquo;nudity&rdquo;})$ keeps LSA from restoring geometry correlated with unsafe concepts.</p>
+          </div>
+        </div>
+
+        <div class="objective-block">
+          <p class="objective-label">Full training objective</p>
+          <div class="eq">$$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{safe}} + \lambda_u \mathcal{L}_{\text{util}} + \lambda_s \mathcal{L}_{\text{ESP}} + \lambda_l \mathcal{L}^{\text{pert}}_{\text{LSA}}$$</div>
         </div>
 
         <figure class="publication-figure">
           <img src="./static/images/method.png" alt="Embedding geometry under safety alignment for base model, prior methods, and SAGE.">
           <figcaption>
-            <strong>Embedding geometry under safety alignment.</strong> The figure illustrates how safety alignment alters the structure of the text-encoder embedding space. <strong>Left: Base Model.</strong> The prompt "Three golden retrievers" is used as a reference. In the base model, semantically related prompts are arranged according to their similarity: "Three dogs" lies closest to the reference, followed by "Two golden retrievers", while an unrelated concept ("cat") appears far away. The arrows visualize the spread of prompt embeddings, and the circular region highlights the local semantic neighborhood around the reference prompt. <strong>Top-right: Prior safety alignment methods.</strong> Safety tuning often alters this structure in two ways. First, the overall spread of embeddings shrinks, meaning different prompts become more tightly clustered in the embedding space. Second, the local semantic neighborhood becomes distorted: prompts that should be far apart can move closer together, causing unrelated concepts (e.g., "cat") to appear within the neighborhood of the reference prompt. <strong>Bottom-right: Our method.</strong> Our alignment objective preserves both properties of the original embedding space. The overall embedding spread remains similar to the base model, and the local neighborhood structure around the reference prompt is maintained.
+            <strong>Embedding geometry under safety alignment.</strong> <strong>Left:</strong> in the base model, prompts are arranged by similarity around the reference "Three golden retrievers". <strong>Top-right:</strong> prior safety tuning shrinks the overall spread and distorts the local neighborhood, pulling unrelated concepts ("cat") inside it. <strong>Bottom-right:</strong> SAGE preserves both the spread and the local neighborhood structure.
           </figcaption>
         </figure>
       </div>

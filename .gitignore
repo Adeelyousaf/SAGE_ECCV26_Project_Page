@@ -6,3 +6,6 @@ T2I_illusion_poster_final_shared*.pdf
 
 # Source logo archive; the web copies live in static/images/
 Color Logos-*.zip
+
+# arXiv source tarball
+arXiv-*.tar.gz
