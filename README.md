@@ -18,6 +18,8 @@ Static project page for the ECCV 2026 paper:
 - Video: https://www.youtube.com/watch?v=BVw6WnfG2iw
 - Hugging Face: https://huggingface.co/Adeely93/SAGE
 - Poster: `static/pdfs/poster.pdf` (preview image: `static/images/poster-preview.jpg`)
+- Link-preview card: `static/images/og-preview.jpg` (1200x630, referenced by the
+  Open Graph tags in `index.html`)
 
 The poster PDF in `static/pdfs/` is a downsampled web copy (2.8 MB) of the
 full-resolution original, which is kept out of git via `.gitignore`.
