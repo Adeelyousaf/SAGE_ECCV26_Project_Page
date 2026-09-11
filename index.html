@@ -253,6 +253,13 @@
         <p class="notation"><strong>Notation.</strong> $\mathbf{z}^{(i)}$ embedding of prompt $i$ &middot; $\bar{\mathbf{z}}$ mean embedding over batch &middot; $B$ batch size &middot; $\mathcal{N}_i^{(0)}$, $\mathcal{N}_i^{(\theta)}$ $k$-NN of prompt $i$ in the base and aligned models &middot; $\mathcal{S}_0$, $\mathcal{S}_\theta$ spread before and after alignment &middot; $\operatorname{sg}$ stop gradient.</p>
 
         <figure class="publication-figure">
+          <img src="./static/images/method.png" alt="Embedding geometry under safety alignment for base model, prior methods, and SAGE.">
+          <figcaption class="caption-lead">
+            <strong>Embedding geometry under safety alignment.</strong> Prior methods <span class="bad">shrink the spread and distort the neighborhood</span>, pulling unrelated concepts inside it; SAGE <span class="good">keeps both intact</span>.
+          </figcaption>
+        </figure>
+
+        <figure class="publication-figure">
           <div class="figure-pair">
             <img src="./static/images/spread-analysis.png" alt="Category-level embedding spread collapse for DES: lower spread ratio corresponds to higher TIFA utility drop.">
             <img src="./static/images/jaccard-analysis.png" alt="Category-level local structure collapse for DES: lower Jaccard ratio corresponds to higher TIFA utility drop.">
@@ -300,12 +307,6 @@
           <div class="eq">$$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{safe}} + \lambda_u \mathcal{L}_{\text{util}} + \lambda_s \mathcal{L}_{\text{ESP}} + \lambda_l \mathcal{L}^{\text{pert}}_{\text{LSA}}$$</div>
         </div>
 
-        <figure class="publication-figure">
-          <img src="./static/images/method.png" alt="Embedding geometry under safety alignment for base model, prior methods, and SAGE.">
-          <figcaption class="caption-lead">
-            <strong>Embedding geometry under safety alignment.</strong> Prior methods <span class="bad">shrink the spread and distort the neighborhood</span>, pulling unrelated concepts inside it; SAGE <span class="good">keeps both intact</span>.
-          </figcaption>
-        </figure>
       </div>
     </div>
   </div>
