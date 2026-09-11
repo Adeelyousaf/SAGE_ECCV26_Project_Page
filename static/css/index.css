@@ -480,6 +480,16 @@ body {
   margin: 1.75rem 0;
 }
 
+/* Let the equation cards break out past the prose column once there is room,
+   so the wider losses fit without a scrollbar. */
+@media screen and (min-width: 1216px) {
+  .concept-grid {
+    width: calc(100% + 200px);
+    margin-left: -100px;
+    margin-right: -100px;
+  }
+}
+
 .concept-card {
   /* Grid items default to min-width:auto, which lets a wide equation push the
      column past the viewport; 0 lets .eq scroll inside instead. */
