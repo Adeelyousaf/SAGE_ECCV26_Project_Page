@@ -15,6 +15,37 @@ body {
     margin-bottom: 5px;
 }
 
+/* Make every hero-link glyph read at the same large, legible size. */
+.publication-links .button {
+    font-size: 1.05rem;
+    padding-left: 1.15em;
+    padding-right: 1.15em;
+}
+
+.publication-links .button .icon {
+    height: 1.6em;
+    width: 1.6em;
+    margin-right: 0.35em;
+}
+
+.publication-links .button .icon i {
+    font-size: 1.45em;
+    line-height: 1;
+}
+
+.publication-links .button .icon img {
+    height: 1.5em !important;
+    width: auto;
+}
+
+.publication-links .button .fa-youtube {
+    color: #ff0000;
+}
+
+.publication-links .button .fa-file-pdf {
+    color: #ff5c5c;
+}
+
 .dnerf {
   font-variant: small-caps;
 }
