@@ -169,7 +169,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 section-heading illusion-heading">The Utility Illusion</h2>
+        <h2 class="title is-3 section-heading section-heading--center illusion-heading">The Utility Illusion</h2>
         <div class="content has-text-justified">
           <p>
             Prior T2I safety methods, summarized in the table below, evaluate safety through attack success rates while assessing utility with global measures such as CLIPScore, which captures overall image&ndash;text similarity. Under this metric, recent methods appear to match the utility of the base model, suggesting that the safety&ndash;utility tradeoff has been largely resolved. We argue that this conclusion is incomplete: for T2I generation, utility is not only a matter of visual quality or global image&ndash;text similarity, but of whether the model correctly renders the objects, attributes, counts, and relationships specified in the prompt.
@@ -241,7 +241,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 section-heading">Method</h2>
+        <h2 class="title is-3 section-heading section-heading--center">Method</h2>
         <div class="content has-text-justified">
           <p>
             SAGE targets the representation-level failure mode behind hidden utility loss. Existing text-encoder safety methods can keep each benign prompt close to its original embedding while still compressing the overall embedding space and reshuffling local neighborhoods. This semantic collapse weakens the model's ability to preserve counts, attributes, and relationships.
@@ -266,7 +266,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 section-heading">Results</h2>
+        <h2 class="title is-3 section-heading section-heading--center">Results</h2>
         <div class="content has-text-justified">
           <p>
             SAGE reaches <strong>75.4 TIFA</strong> &mdash; 1.2% below the base model and 5.0% above DES &mdash; at <strong>1.2% average ASR</strong>, while preserving embedding geometry better than prior text-encoder methods (0.96 spread ratio, 0.63 Jaccard overlap).
@@ -424,7 +424,7 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title is-3 section-heading">BibTeX</h2>
+    <h2 class="title is-3 section-heading section-heading--center">BibTeX</h2>
     <pre><code>@misc{yousaf2026illusionhighutilitysafety,
       title={The Illusion of High Utility in Safety Alignment of Text-to-Image Diffusion Models}, 
       author={Adeel Yousaf and Soumik Ghosh and James Beetham and Amrit Singh Bedi and Mubarak Shah},
