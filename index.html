@@ -237,7 +237,7 @@
         <div class="concept-grid">
           <div class="concept-card">
             <h3 class="concept-title">Embedding spread</h3>
-            <p>Given $B$ benign prompts with $\ell_2$-normalized embeddings $\mathbf{z}^{(i)}$ and mean embedding $\bar{\mathbf{z}}$, the spread is the average squared distance from the batch mean:</p>
+            <p>Given $B$ benign prompts with text embeddings $\mathbf{z}^{(i)}$ and mean embedding $\bar{\mathbf{z}}$, the spread is the average squared distance from the batch mean:</p>
             <div class="eq">$$\mathcal{S} = \frac{1}{B}\sum_{i=1}^{B}\left\|\mathbf{z}^{(i)} - \bar{\mathbf{z}}\right\|_2^2 , \qquad \mathcal{R}_s = \frac{\mathcal{S}_\theta}{\mathcal{S}_0}$$</div>
             <p class="concept-note">$\mathcal{R}_s &lt; 1$ indicates embedding contraction; $\mathcal{R}_s \approx 1$ means the spread matches the base model.</p>
           </div>
@@ -250,7 +250,7 @@
           </div>
         </div>
 
-        <p class="notation"><strong>Notation.</strong> $\mathbf{z}^{(i)}$ embedding of prompt $i$ &middot; $\bar{\mathbf{z}}$ mean embedding over batch &middot; $B$ batch size &middot; $\mathcal{N}_i^{(0)}$, $\mathcal{N}_i^{(\theta)}$ $k$-NN of prompt $i$ in the base and aligned models &middot; $\mathcal{S}_0$, $\mathcal{S}_\theta$ spread before and after alignment &middot; $\operatorname{sg}$ stop gradient.</p>
+        <p class="notation"><strong>Notation.</strong> $\mathbf{z}^{(i)}$ text embedding of prompt $i$ &middot; $\bar{\mathbf{z}}$ mean embedding over batch &middot; $B$ batch size &middot; $\mathcal{N}_i^{(0)}$, $\mathcal{N}_i^{(\theta)}$ $k$-NN of prompt $i$ in the base and aligned models &middot; $\mathcal{S}_0$, $\mathcal{S}_\theta$ spread before and after alignment &middot; $\operatorname{sg}$ stop gradient.</p>
 
         <figure class="publication-figure">
           <img src="./static/images/method.png" alt="Embedding geometry under safety alignment for base model, prior methods, and SAGE.">
